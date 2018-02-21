@@ -44,13 +44,25 @@
         font-size: 14px;
       }
 
-      aloc-card, aloc-img {
+      .intro {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #ffa100;
+        z-index: 2;
+        opacity: 1;
+        transition: opacity 1s;
+      }
+
+      .container aloc-card, .container aloc-img {
         margin-bottom: 1rem;
       }
 
       @supports (display: grid) {
         @media (min-width: 500px) {
-          body {
+          .container {
             display: grid;
             grid-gap: 1rem;
             grid-template-columns: 1fr 1fr;
@@ -64,7 +76,7 @@
               "hobby   hobby";
           }
 
-          aloc-card, aloc-img {
+          .container aloc-card, .container aloc-img {
             margin-bottom: 0;
           }
 
@@ -78,7 +90,7 @@
         }
 
         @media (min-width: 750px) {
-          body {
+          .container {
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 4fr;
             grid-template-areas:
@@ -90,7 +102,7 @@
         }
 
         @media (min-width: 1100px) {
-          body {
+          .container {
             grid-template-columns: 1fr 1fr 1fr 1fr;
             grid-template-areas:
               "welcome welcome welcome bio"
@@ -102,7 +114,7 @@
         }
 
         @media (min-width: 1550px) {
-          body {
+          .container {
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
             grid-template-areas:
               "welcome welcome welcome bio     bio"
@@ -119,48 +131,58 @@
       import AlocCard from "./components/aloc-card.js"
       import AlocButton from "./components/aloc-button.js"
       import AlocImg from "./components/aloc-img.js"
+
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+          document.querySelector(".intro").style.opacity = 0;
+        }, 50);
+      });
     </script>
   </head>
   <body>
-    <aloc-card id="welcome">
-      <h2>Welcome</h2>
-      <h1>Me: Alex Lockhart</h1>
-      <p>Hello, and thanks for coming!</p>
-      <p>Here you can find out all about me</p>
-    </aloc-card>
+    <div class="intro"></div>
 
-    <aloc-card id="bio">
-      <h2>Bio</h2>
-      <aloc-button href="/">I am a button</aloc-button>
-    </aloc-card>
+    <div class="container">
+      <aloc-card id="welcome">
+        <h2>Welcome</h2>
+        <h1>Me: Alex Lockhart</h1>
+        <p>Hello, and thanks for coming!</p>
+        <p>Here you can find out all about me</p>
+      </aloc-card>
 
-    <aloc-card id="recent">
-      <h2>Stay up to date</h2>
-      <p>Subscribe to push notifications to stay up to date</p>
-      <p>Okay, let's be honest, who really would want to do that?</p>
-    </aloc-card>
+      <aloc-card id="bio">
+        <h2>Bio</h2>
+        <aloc-button href="/">I am a button</aloc-button>
+      </aloc-card>
 
-    <aloc-card id="hobby">
-      <h2>Hobbies</h2>
-      <p>Testing lorem ipsum</p>
-    </aloc-card>
+      <aloc-card id="recent">
+        <h2>Stay up to date</h2>
+        <p>Subscribe to push notifications to stay up to date</p>
+        <p>Okay, let's be honest, who really would want to do that?</p>
+      </aloc-card>
 
-    <aloc-card id="resume">
-      <h2>Resume</h2>
-      <p>Testing lorem ipsum</p>
-    </aloc-card>
+      <aloc-card id="hobby">
+        <h2>Hobbies</h2>
+        <p>Testing lorem ipsum</p>
+      </aloc-card>
 
-    <aloc-img id="abc" src="/images/hiking1.original.jpg"></aloc-img>
+      <aloc-card id="resume">
+        <h2>Resume</h2>
+        <p>Testing lorem ipsum</p>
+      </aloc-card>
 
-    <aloc-card id="xyz">
-      <h2>Xyz</h2>
-      <p>Testing lorem ipsum</p>
-    </aloc-card>
+      <aloc-img id="abc" src="/images/hiking1.original.jpg"></aloc-img>
 
-    <aloc-card id="family">
-      <h2>Family</h2>
-      <p>Testing lorem ipsum</p>
-    </aloc-card>
+      <aloc-card id="xyz">
+        <h2>Xyz</h2>
+        <p>Testing lorem ipsum</p>
+      </aloc-card>
+
+      <aloc-card id="family">
+        <h2>Family</h2>
+        <p>Testing lorem ipsum</p>
+      </aloc-card>
+    </div>
 
     <script type="text/javascript">
       if ('serviceWorker' in navigator) {
