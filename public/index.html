@@ -3,63 +3,160 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <title>Kaelino Tree Service</title>
 
-    <!-- update the version number as needed -->
     <script defer src="/__/firebase/4.10.0/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/4.10.0/firebase-auth.js"></script>
-    <script defer src="/__/firebase/4.10.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/4.10.0/firebase-firestore.js"></script>
     <script defer src="/__/firebase/4.10.0/firebase-messaging.js"></script>
     <script defer src="/__/firebase/4.10.0/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
+    <style>
+      body {
+        background: #ECEFF1;
+        color: rgba(0,0,0,0.87);
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 1rem;
+        border-top: 1rem solid #ffa100;
+      }
+
+      h2 {
+        color: #ffa100;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 22px;
+        font-weight: 300;
+        color: rgba(0,0,0,0.6);
+      }
+
+      p {
+        line-height: 140%;
+        font-size: 14px;
+      }
+
+      aloc-card {
+        margin-bottom: 1rem;
+      }
+
+      @supports (display: grid) {
+        @media (min-width: 500px) {
+          body {
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-areas:
+              "welcome bio"
+              "resume  bio"
+              "resume  abc"
+              "xyz     family"
+              "recent  family"
+              "hobby   hobby";
+          }
+
+          aloc-card {
+            margin-bottom: 0;
+          }
+
+          #welcome { grid-area: welcome }
+          #bio { grid-area: bio }
+          #resume { grid-area: resume }
+          #hobby { grid-area: hobby }
+          #abc { grid-area: abc }
+          #xyz { grid-area: xyz }
+          #family { grid-area: family }
+        }
+
+        @media (min-width: 750px) {
+          body {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 4fr;
+            grid-template-areas:
+              "welcome welcome bio"
+              "resume  hobby   bio"
+              "resume  recent  abc"
+              "xyz     family  family";
+          }
+        }
+
+        @media (min-width: 1100px) {
+          body {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-areas:
+              "welcome welcome welcome bio"
+              "resume  resume  hobby   bio"
+              "resume  resume  recent  abc"
+              "xyz     xyz     family  family";
+            }
+          }
+        }
+
+        @media (min-width: 1550px) {
+          body {
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-areas:
+              "welcome welcome welcome bio     bio"
+              "resume  resume  hobby   bio     bio"
+              "resume  resume  recent  abc     abc"
+              "xyz     xyz     family  family  family";
+            }
+          }
+        }
       }
     </style>
+
+    <script type="module">
+      import AlocCard from "./components/aloc-card.js"
+      import AlocButton from "./components/aloc-button.js"
+    </script>
   </head>
   <body>
-    <div id="message">
+    <aloc-card id="welcome">
       <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+      <h1>Me: Alex Lockhart</h1>
+      <p>Hello, and thanks for coming!</p>
+      <p>Here you can find out all about me</p>
+    </aloc-card>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <aloc-card id="bio">
+      <h2>Bio</h2>
+      <aloc-button href="/">I am a button</aloc-button>
+    </aloc-card>
 
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
+    <aloc-card id="recent">
+      <h2>Stay up to date</h2>
+      <p>Subscribe to push notifications to stay up to date</p>
+      <p>Okay, let's be honest, who really would want to do that?</p>
+    </aloc-card>
+
+    <aloc-card id="hobby">
+      <h2>Hobbies</h2>
+      <p>Testing lorem ipsum</p>
+    </aloc-card>
+
+    <aloc-card id="resume">
+      <h2>Resume</h2>
+      <p>Testing lorem ipsum</p>
+    </aloc-card>
+
+    <aloc-card id="abc">
+      <h2>Abc</h2>
+      <p>Testing lorem ipsum</p>
+    </aloc-card>
+
+    <aloc-card id="xyz">
+      <h2>Xyz</h2>
+      <p>Testing lorem ipsum</p>
+    </aloc-card>
+
+    <aloc-card id="family">
+      <h2>Family</h2>
+      <p>Testing lorem ipsum</p>
+    </aloc-card>
   </body>
 </html>
