@@ -8,11 +8,15 @@ export default class AlocCard extends HTMLElement {
   get actionText() { return this._actionText }
   set actionText(actionText) { this._actionText = actionText; this.render(); }
 
+  get image() { return this._image }
+  set image(image) { this._image = image; this.render(); }
+
   constructor() {
     super();
     this.attachShadow({mode: 'open'});
     this.shadowHyper = hyper.bind(this.shadowRoot);
     this._actionText = this.getAttribute("actionText");
+    this._image = this.getAttribute("image");
   }
 
   connectedCallback() {
@@ -26,7 +30,7 @@ export default class AlocCard extends HTMLElement {
   render() {
     this.shadowHyper`
       ${this._styles()}
-      <div class="container">
+      <div class="container" style=${{backgroundImage: `url(${this.image})`}}>
         <slot></slot>
       </div>
       ${this.actionText ? hyper`
@@ -49,6 +53,8 @@ export default class AlocCard extends HTMLElement {
 
       .container {
         padding: 24px;
+        background-size: cover;
+        height: 100%;
       }
 
       .bar {

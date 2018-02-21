@@ -39,7 +39,7 @@
         font-size: 14px;
       }
 
-      aloc-card {
+      aloc-card, aloc-img {
         margin-bottom: 1rem;
       }
 
@@ -59,7 +59,7 @@
               "hobby   hobby";
           }
 
-          aloc-card {
+          aloc-card, aloc-img {
             margin-bottom: 0;
           }
 
@@ -103,7 +103,7 @@
               "welcome welcome welcome bio     bio"
               "resume  resume  hobby   bio     bio"
               "resume  resume  recent  abc     abc"
-              "xyz     xyz     family  family  family";
+              "xyz     family  family  family  family";
             }
           }
         }
@@ -113,6 +113,7 @@
     <script type="module">
       import AlocCard from "./components/aloc-card.js"
       import AlocButton from "./components/aloc-button.js"
+      import AlocImg from "./components/aloc-img.js"
     </script>
   </head>
   <body>
@@ -144,10 +145,7 @@
       <p>Testing lorem ipsum</p>
     </aloc-card>
 
-    <aloc-card id="abc">
-      <h2>Abc</h2>
-      <p>Testing lorem ipsum</p>
-    </aloc-card>
+    <aloc-img id="abc" src="/images/hiking1.original.jpg"></aloc-img>
 
     <aloc-card id="xyz">
       <h2>Xyz</h2>
