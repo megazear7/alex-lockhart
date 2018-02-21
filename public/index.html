@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffa100">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="icon" type="image/png" href="/images/icon-48.png" />
     <title>Kaelino Tree Service</title>
 
     <script defer src="/__/firebase/4.10.0/firebase-app.js"></script>
@@ -13,6 +16,8 @@
     <script defer src="/__/firebase/init.js"></script>
 
     <style>
+      /* Orange: #ffa100*/
+      /* Blue: #039be5*/
       body {
         background: #ECEFF1;
         color: rgba(0,0,0,0.87);
@@ -156,5 +161,11 @@
       <h2>Family</h2>
       <p>Testing lorem ipsum</p>
     </aloc-card>
+    
+    <script type="text/javascript">
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js');
+      }
+    </script>
   </body>
 </html>
