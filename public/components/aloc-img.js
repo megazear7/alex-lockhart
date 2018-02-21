@@ -19,7 +19,7 @@ export default class AlocImg extends HTMLElement {
     img.src = this.src;
     img.style.opacity = "0";
     img.style.borderRadius = "3px";
-    img.style.transition = "opacity 2s";
+    img.style.transition = "opacity 1s";
     img.style.width = "100%";
     this.shadowRoot.innerHTML = '';
     this.shadowRoot.appendChild(img);

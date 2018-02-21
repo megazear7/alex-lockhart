@@ -2,7 +2,6 @@ const PRECACHE = 'precache-v1';
 const RUNTIME = 'runtime-v1';
 
 const PRECACHE_URLS = [
-  "",
   "/",
   "/components/aloc-button.js",
   "/components/aloc-card.js",

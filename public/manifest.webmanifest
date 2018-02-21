@@ -4,9 +4,9 @@
   "lang": "en-US",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#4ABDAC",
+  "background_color": "#4abdac",
   "theme_color": "#ffa100",
-  "description": "A site about Alex Lockhart",
+  "description": "A site about Alex Lockhart.",
   "gcm_sender_id": "103953800507",
   "icons": [{
     "src": "/images/icon-48.png",
