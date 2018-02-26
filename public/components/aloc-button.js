@@ -1,15 +1,15 @@
 const template = document.createElement('template');
 template.innerHTML = `
+  <link href="/components/shared.css" rel="stylesheet">
   <style>
     :host {
-      display: block;
       text-align: center;
-      background: #039be5;
-      text-decoration: none;
-      color: white;
-      padding: 16px;
-      border-radius: 4px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      display: block;
+      background: var(--primary-color);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      color: var(--font-color);
+      padding: var(--standard-padding);
       cursor: pointer;
     }
   </style>
